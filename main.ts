@@ -5,10 +5,12 @@
 // screenshots, the first load's files and bytes, and your source), with the vendored make.fun library. Leave
 // vendor/makefun-frontend.ts as it is: the scorer requires dossier.json to be byte for byte what its own copy writes.
 //
-// Only the plumbing, not a winner: a plain checklist of the 55 trophies with a one-line hint each. Write a real guide
-// for every trophy in your own words, a roadmap to the platinum, filters and a spoiler setting in app/, put 3 or 4 PNG
-// or JPEG screenshots of it in screenshots/ (the first by name is the cover; shots.json says which views this
-// starter's were taken of), and run it.
+// This build is the real thing, not the starter: all 55 trophies carry a guide in our own words with cited sources
+// (PowerPyx, Push Square, GTABase, KeenGamer, Sixshore), a 4-stage roadmap to the platinum, a missable-trophy view
+// (one possibly missable trophy: Positive Mental Attitude), filters by kind/grade/earned, a spoiler setting that hides
+// story trophy names and descriptions until earned, and a tracker saved in localStorage with export/import. The four
+// screenshots in screenshots/ show the checklist with a guide open, the roadmap, a trophy detail and the spoiler
+// setting at work (shots.json records each view's URL).
 //
 // Serve it locally with `node serve.ts`, then open http://localhost:8080.
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:

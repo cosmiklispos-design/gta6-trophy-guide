@@ -3,23 +3,100 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI (PS5): all 55 trophies, roadmap &amp; tracker</title>
+<meta name="description" content="Offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, a roadmap to the platinum, missable flags and a checklist that saves in your browser.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">L<span>★</span></div>
+    <div>
+      <h1>Leonida Trophy Guide</h1>
+      <p class="subtitle">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies &middot; 1 platinum &middot; 2 gold &middot; 6 silver &middot; 46 bronze &middot; 0 online</p>
+    </div>
+  </div>
+  <div class="progress-box" id="progressBox" aria-live="polite">
+    <div class="progress-line"><strong id="progressText">0 of 55 earned</strong><span id="progressPct">0%</span></div>
+    <div class="progress-bar"><div id="progressFill"></div></div>
+    <div class="grade-counts" id="gradeCounts"></div>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+
+<nav class="tabs" aria-label="Sections">
+  <button type="button" class="tab active" data-view="list" id="tab-list">Checklist</button>
+  <button type="button" class="tab" data-view="roadmap" id="tab-roadmap">Roadmap to Platinum</button>
+  <button type="button" class="tab" data-view="missables" id="tab-missables">Missables <span class="tab-badge">1</span></button>
+  <button type="button" class="tab" data-view="sources" id="tab-sources">Sources &amp; Notes</button>
+</nav>
+
+<section id="view-list" class="view">
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search a trophy or mission…" aria-label="Search trophies">
+    <div class="chips" id="kindChips" role="group" aria-label="Filter by kind"></div>
+    <label class="select-label">Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="select-label">Show
+      <select id="earnedFilter">
+        <option value="all">All trophies</option>
+        <option value="remaining">Still to earn</option>
+        <option value="earned">Earned</option>
+      </select>
+    </label>
+    <label class="toggle"><input type="checkbox" id="spoilerToggle"> Hide story spoilers</label>
+    <button id="export" type="button">Export progress</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+    <button id="reset" type="button" class="quiet">Reset</button>
+  </div>
+  <p class="results-line" id="resultsLine"></p>
+  <div id="cards" class="cards"></div>
+  <p class="empty" id="emptyState" hidden>No trophies match these filters. Try clearing the search or choosing another kind.</p>
+</section>
+
+<section id="view-roadmap" class="view" hidden>
+  <h2>Roadmap to the platinum</h2>
+  <p class="lede">One playthrough, about <strong>200 hours</strong>, difficulty <strong>4/10</strong> (PowerPyx). No online trophies, no difficulty settings, no mission replay — but free-roam continues after the story, and only one trophy is possibly missable. Keep cheats off: they disable trophies and saving.</p>
+  <div class="stat-strip" id="roadmapStats"></div>
+  <div class="stages" id="roadmapStages"></div>
+  <h3>What 100% completion actually wants</h3>
+  <p>The checklist opens after the story under <strong>Progress &gt; Stats &gt; 100% Completion</strong>. It is closer to 60% true completion — most side quests are not needed, and partial rows only ask for 70–80% of their totals.</p>
+  <table class="check-table" id="completionTable"></table>
+  <div class="callout warn"><strong>Save smart.</strong> There is no mission replay and 15 manual save slots plus 1 autosave. Keep a save at the start and end of each chapter (10 saves), then rotate the remaining 5 for free-roam cleanup.</div>
+</section>
+
+<section id="view-missables" class="view" hidden>
+  <h2>Missable trophies</h2>
+  <p class="lede">Good news: only <strong>one</strong> trophy is possibly missable. Everything else can be earned after the story in free-roam.</p>
+  <div id="missableCards" class="cards"></div>
+  <div class="callout ok"><strong>Everything else is safe.</strong> Optional missions that disappear, quest givers who go quiet for a chapter, fences that close and magazine collectibles in story buildings — none of it blocks a trophy or 100% completion, because the game offers far more than the checklist needs (for example 200–300+ optional missions against the 100 required).</div>
+</section>
+
+<section id="view-sources" class="view" hidden>
+  <h2>Sources &amp; notes</h2>
+  <p class="lede">Every guide in this app is written in our own words. The facts behind each one are cited beside it, from the sources below. Official trophy names and descriptions are shown exactly as PlayStation publishes them.</p>
+  <ul class="source-list" id="sourceList"></ul>
+  <h3>What we could not verify</h3>
+  <ul class="verify-list">
+    <li><strong>Strangers &amp; Freaks:</strong> only some stranger strands count toward the 8, and guides are still confirming the full set. The strands named in that trophy's guide are the confirmed ones (PowerPyx).</li>
+    <li><strong>Positive Mental Attitude:</strong> it is still unclear whether the Chapter 1 balcony meditation is required for the trophy. Do it anyway — it costs a minute and the guide who earned the trophy had done it (PowerPyx).</li>
+    <li><strong>The Truth Is Out There:</strong> the UFO spawn is slightly random and not guaranteed on a given night (PowerPyx).</li>
+    <li><strong>Fair Game:</strong> exactly which animal pops the trophy is still being confirmed (PowerPyx).</li>
+    <li>Rockstar has not published an official trophy list of its own; the list here is the one Exophase and PSNProfiles carry, and the guides that agree with it.</li>
+  </ul>
+  <p class="fineprint">This is an unofficial fan guide. Grand Theft Auto, GTA and Leonida are properties of their owners; no Rockstar Games logo, artwork or game screenshot is used here. The guide works fully offline — it loads nothing from the network.</p>
+</section>
+
+<div id="detail" class="detail" hidden role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <div class="detail-card" id="detailCard"></div>
 </div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
